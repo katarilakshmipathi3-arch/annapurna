@@ -347,7 +347,7 @@ export interface SatelliteData {
   source: string;
   latitude: number | null;
   longitude: number | null;
-  ndvi_value: number | null;
+  ndvi_value?: number | null;
   ndvi_modifier: number;
   modifier_applied: boolean;
   api_status: string;
@@ -395,7 +395,7 @@ export interface WeatherAlert {
 export interface WeatherAlertsResponse {
   crop_type: string;
   weather_summary: { temp_c: number; humidity_pct: number; description: string; rain_chance_pct: number };
-  thermal_acceleration_factor: number;
+  thermal_acceleration_factor?: number | null;
   alerts: WeatherAlert[];
   timestamp: string;
   api_status?: string;
@@ -811,4 +811,3 @@ export const compareMandis = async (
     },
   };
 };
-

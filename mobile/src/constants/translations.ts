@@ -139,7 +139,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     // Pest & Soil Hub
     pest_hub_title: 'తెగుళ్లు & నేల ఆరోగ్య కేంద్రం',
     pest_hub_sub: 'పంట సమస్యలు మరియు నేల తేమను తనిఖీ చేయండి',
-    best_choice: 'ఉత్తమ ఎంపిక',
+    best_choice: 'పెస్ట్ స్కాన్',
     pest_scanner: 'తెగుళ్ల స్కానర్',
     pest_scanner_desc: 'తక్షణ రోగ నిర్ధారణ కోసం ఆకును స్కాన్ చేయండి',
     soil_report_analysis: 'నేల నివేదిక విశ్లేషణ',
@@ -350,7 +350,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     // Pest & Soil Hub
     pest_hub_title: 'कीट एवं मृदा स्वास्थ्य केंद्र',
     pest_hub_sub: 'फसल की बीमारियों और मिट्टी की जांच करें',
-    best_choice: 'सर्वोत्तम विकल्प',
+    best_choice: 'कीट स्कैन',
     pest_scanner: 'कीट स्कैनर',
     pest_scanner_desc: 'तत्काल रोग निदान के लिए पत्ते को स्कैन करें',
     soil_report_analysis: 'मृदा रिपोर्ट विश्लेषण',
@@ -561,7 +561,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     // Pest & Soil Hub
     pest_hub_title: 'कीड व माती आरोग्य केंद्र',
     pest_hub_sub: 'पिकांचे रोग आणि मातीचे आरोग्य तपासा',
-    best_choice: 'सर्वोत्तम निवड',
+    best_choice: 'कीड स्कॅन',
     pest_scanner: 'कीड स्कॅनर',
     pest_scanner_desc: 'तातडीच्या रोग निदानासाठी पान स्कॅन करा',
     soil_report_analysis: 'माती अहवाल विश्लेषण',
@@ -772,7 +772,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     // Pest & Soil Hub
     pest_hub_title: 'Pest & Soil Health Hub',
     pest_hub_sub: 'Diagnose crop diseases and soil moisture',
-    best_choice: 'Best Choice',
+    best_choice: 'Pest Scan',
     pest_scanner: 'Pest Scanner',
     pest_scanner_desc: 'Scan a leaf or crop problem for instant diagnosis',
     soil_report_analysis: 'Soil Report Analysis',
@@ -995,7 +995,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     // Pest & Soil Hub
     pest_hub_title: 'பூச்சி மற்றும் மண் நல மையம்',
     pest_hub_sub: 'பயிர் நோய்கள் மற்றும் மண்ணின் ஈரப்பதத்தை சரிபார்க்கவும்',
-    best_choice: 'சிறந்த தேர்வு',
+    best_choice: 'பூச்சி ஸ்கேன்',
     pest_scanner: 'பூச்சி ஸ்கேனர்',
     pest_scanner_desc: 'உடனடி நோய் கண்டறிதலுக்கு இலையை ஸ்கேன் செய்யவும்',
     soil_report_analysis: 'மண் அறிக்கை பகுப்பாய்வு',
@@ -1124,7 +1124,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     // Pest & Soil Hub
     pest_hub_title: 'ಕೀಟ ಮತ್ತು ಮಣ್ಣಿನ ಆರೋಗ್ಯ ಕೇಂದ್ರ',
     pest_hub_sub: 'ಬೆಳೆ ರೋಗಗಳು ಮತ್ತು ಮಣ್ಣಿನ ತೇವಾಂಶವನ್ನು ಪರೀಕ್ಷಿಸಿ',
-    best_choice: 'ಅತ್ಯುತ್ತಮ ಆಯ್ಕೆ',
+    best_choice: 'ಕೀಟ ಸ್ಕ್ಯಾನ್',
     pest_scanner: 'ಕೀಟ ಸ್ಕ್ಯಾನರ್',
     pest_scanner_desc: 'ತ್ವರಿತ ರೋಗ ಪತ್ತೆಗಾಗಿ ಎಲೆಯನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ',
     soil_report_analysis: 'ಮಣ್ಣಿನ ವರದಿ ವಿಶ್ಲೇಷಣೆ',

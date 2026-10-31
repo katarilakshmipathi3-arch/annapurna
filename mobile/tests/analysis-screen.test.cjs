@@ -19,6 +19,25 @@ findCallback(source);
 assert.ok(callback, 'Analysis request callback exists');
 const code = ts.transpile(`(${callback})()`, { target: ts.ScriptTarget.ES2020 });
 
+let optionalNumberFormatter;
+function findOptionalNumberFormatter(node) {
+  if (ts.isFunctionDeclaration(node) && node.name?.text === 'formatOptionalNumber') {
+    optionalNumberFormatter = node.getText(source);
+  }
+  ts.forEachChild(node, findOptionalNumberFormatter);
+}
+findOptionalNumberFormatter(source);
+assert.ok(optionalNumberFormatter, 'Optional number formatter exists');
+const formatNumber = vm.runInNewContext(
+  `(${ts.transpile(optionalNumberFormatter, { target: ts.ScriptTarget.ES2020 })})`,
+);
+
+test('optional analysis values render safely when missing', () => {
+  assert.equal(formatNumber(undefined, 2), 'N/A');
+  assert.equal(formatNumber(null, 2), 'N/A');
+  assert.equal(formatNumber(1.256, 2), '1.26');
+});
+
 async function runAnalysis(analysisError, queueError, nestedScore) {
   const state = { queued: [], navigations: [] };
   const result = {

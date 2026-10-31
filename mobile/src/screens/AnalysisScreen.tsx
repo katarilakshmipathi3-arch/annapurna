@@ -71,6 +71,10 @@ interface AggregatedVisionResult {
 
 const EMPTY_SAMPLES: AnalysisScreenParams['samples'] = [];
 
+function formatOptionalNumber(value: number | null | undefined, decimals: number): string {
+  return value == null ? 'N/A' : value.toFixed(decimals);
+}
+
 function AnalysisScreen({ navigation, route }: any) {
   const { t } = useLanguage();
   const params = route?.params as AnalysisScreenParams | undefined;
@@ -554,8 +558,8 @@ function AnalysisScreen({ navigation, route }: any) {
                     <View style={styles.dataTextCol}>
                       <Text style={styles.dataLabel}>SATELLITE NDVI</Text>
                       <Text style={styles.dataText}>
-                        {satelliteData.ndvi_value !== null
-                          ? `NDVI: ${satelliteData.ndvi_value.toFixed(2)} — ${satelliteData.ndvi_value > 0.5 ? 'Healthy vegetation' : 'Vegetation stress'}`
+                        {satelliteData.ndvi_value != null
+                          ? `NDVI: ${formatOptionalNumber(satelliteData.ndvi_value, 2)} — ${satelliteData.ndvi_value > 0.5 ? 'Healthy vegetation' : 'Vegetation stress'}`
                           : satelliteData.api_status === 'CREDENTIALS_NOT_CONFIGURED'
                           ? 'ISRO credentials not configured'
                           : satelliteData.api_status === 'NO_GPS_COORDINATES'
@@ -619,10 +623,14 @@ function AnalysisScreen({ navigation, route }: any) {
                       ))}
                     </View>
                     <View style={styles.expandableDetail}>
-                      <Text style={styles.detailLabel}>Thermal Acceleration Factor: {weatherAlerts.thermal_acceleration_factor.toFixed(2)}x</Text>
                       <Text style={styles.detailLabel}>
-                        Q10 respiration model: crop decay accelerates {weatherAlerts.thermal_acceleration_factor.toFixed(1)}x 
-                        for every 10°C above optimal 12°C baseline.
+                        Thermal Acceleration Factor: {formatOptionalNumber(weatherAlerts.thermal_acceleration_factor, 2)}
+                        {weatherAlerts.thermal_acceleration_factor != null ? 'x' : ''}
+                      </Text>
+                      <Text style={styles.detailLabel}>
+                        {weatherAlerts.thermal_acceleration_factor != null
+                          ? `Q10 respiration model: crop decay accelerates ${formatOptionalNumber(weatherAlerts.thermal_acceleration_factor, 1)}x for every 10°C above optimal 12°C baseline.`
+                          : 'Q10 respiration model data unavailable.'}
                       </Text>
                     </View>
                   </View>
@@ -1130,13 +1138,16 @@ const styles = StyleSheet.create({
   },
   metricsGrid: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 12,
   },
   metricCard: {
-    flex: 1,
+    flexBasis: '46%',
+    flexGrow: 1,
+    minWidth: 0,
     backgroundColor: '#FFFFFF',
     borderRadius: 16,
-    padding: 16,
+    padding: 12,
     alignItems: 'center',
     shadowColor: '#145C2E',
     shadowOffset: { width: 0, height: 4 },
@@ -1154,7 +1165,10 @@ const styles = StyleSheet.create({
   },
   metricValue: {
     fontFamily: 'PlusJakartaSans_700Bold',
-    fontSize: 22,
+    width: '100%',
+    flexShrink: 1,
+    textAlign: 'center',
+    fontSize: 20,
     color: '#00431D',
   },
   metricGood: {
